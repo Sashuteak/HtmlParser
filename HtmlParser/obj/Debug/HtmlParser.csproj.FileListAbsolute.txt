@@ -1,0 +1,64 @@
+c:\users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\HtmlParser.exe.config
+c:\users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\HtmlParser.exe
+c:\users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\HtmlParser.pdb
+c:\users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\AngleSharp.dll
+c:\users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\AngleSharp.xml
+c:\users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.csprojResolveAssemblyReference.cache
+c:\users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.Form1.resources
+c:\users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.Properties.Resources.resources
+c:\users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.csproj.GenerateResource.Cache
+c:\users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.exe
+c:\users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.pdb
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\HtmlParser.exe.manifest
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\HtmlParser.application
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.exe.manifest
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.application
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Core.dll
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Customsearch.v1.dll
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.dll
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.PlatformServices.dll
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\Newtonsoft.Json.dll
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\Zlib.Portable.dll
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.pdb
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.xml
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Core.pdb
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Core.xml
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Customsearch.v1.pdb
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Customsearch.v1.xml
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.PlatformServices.pdb
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.PlatformServices.xml
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\Newtonsoft.Json.xml
+C:\Users\sashu\documents\visual studio 2015\Projects\HtmlParser\HtmlParser\bin\Debug\Zlib.Portable.xml
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\HtmlParser.exe.config
+D:\C#\My Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.exe
+D:\C#\My Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.pdb
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\HtmlParser.exe.manifest
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\HtmlParser.application
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\HtmlParser.exe
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\HtmlParser.pdb
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\AngleSharp.dll
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Core.dll
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Customsearch.v1.dll
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.dll
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.PlatformServices.dll
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\Newtonsoft.Json.dll
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\Zlib.Portable.dll
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\AngleSharp.xml
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.pdb
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.xml
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Core.pdb
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Core.xml
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Customsearch.v1.pdb
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Customsearch.v1.xml
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.PlatformServices.pdb
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\Google.Apis.PlatformServices.xml
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\Newtonsoft.Json.xml
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\Zlib.Portable.xml
+D:\C#\My Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.csprojResolveAssemblyReference.cache
+D:\C#\My Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.Form1.resources
+D:\C#\My Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.Properties.Resources.resources
+D:\C#\My Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.csproj.GenerateResource.Cache
+D:\C#\My Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.exe.manifest
+D:\C#\My Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.application
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\VkNet.dll
+D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\VkNet.xml
