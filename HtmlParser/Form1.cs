@@ -38,6 +38,7 @@ namespace HtmlParser
         List<Contact> cont;
         FileStream stream;
         ExcelWriter writer;
+        IEnumerable<IElement> res;
 
         public Form1()
         {
@@ -61,7 +62,7 @@ namespace HtmlParser
         public StringBuilder GetEmailsFromPage(string url)
         {
             StringBuilder result = new StringBuilder();
-            richTextBox1.AppendText("ВСЕ EMAIL С САЙТА -> " + url + "\n");
+            richTextBox2.AppendText("ВСЕ EMAIL С САЙТА -> " + url + "\n");
             IHtmlDocument doc = parser.Parse(Request(url));
             var href = doc.All.Where(m => m.LocalName == "a");
 
@@ -146,7 +147,7 @@ namespace HtmlParser
         private void button2_Click(object sender, EventArgs e)
         {
             richTextBox1.Clear();
-            var res = document.All.Where(x => x.LocalName == comboBox1.SelectedItem.ToString());
+            res = document.All.Where(x => x.LocalName == comboBox1.SelectedItem.ToString());
             if(textBox2.Text != "")
             {
                 foreach (var item in res)
@@ -162,10 +163,71 @@ namespace HtmlParser
                 }
             }
         }
-        private void button3_Click(object sender, EventArgs e)
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Uri uri = new Uri(textBox3.Text);
-            richTextBox1.AppendText(GetEmailsFromPage(uri.GetLeftPart(UriPartial.Scheme) + uri.Host).ToString());
+            writer.EndWrite();
+            stream.Close();
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            progressBar1.Maximum = int.Parse(textBox5.Text);
+            progressBar1.Minimum = 0;
+            progressBar1.Value = 0;
+            for (int i = 0; i < int.Parse(textBox5.Text);)
+            {
+                var ids = app.Groups.GetMembers(new GroupsGetMembersParams
+                {
+                    Offset = i,
+                    GroupId = textBox6.Text,
+                    Fields = UsersFields.All
+                }).Where(x => x.MobilePhone != null && x.MobilePhone != "" || x.Site != null && x.Site != "");
+                foreach (var item in ids)
+                {
+                    ListViewItem lvi = new ListViewItem(item.FirstName + " " + item.LastName);
+                    lvi.SubItems.Add(item.MobilePhone);
+                    lvi.SubItems.Add(item.Site);
+                    listView1.Items.Add(lvi);
+                    progressBar1.Value += 1;
+                    Application.DoEvents();
+                }
+                i += 1000;
+            }
+            MessageBox.Show(listView1.Items.Count.ToString());
+        }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            WebClient client = new WebClient();
+            string[]src = richTextBox1.Text.Split('\n');
+            progressBar2.Maximum = src.Length;
+            progressBar2.Minimum = 0;
+            progressBar2.Value = 0;
+            for (int i = 0; i < src.Length; i++)
+            {
+                if(src[i] != "")
+                {
+                    Uri uri = new Uri(src[i]);
+                    client.DownloadFile(uri, @"..\..\img\" + textBox4.Text + i.ToString() + ".jpg");
+                    progressBar2.Value += 1;
+                }
+            }
+        }
+        private void richTextBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            ////Получаем индекс нажатого знака
+            //int charIndex = richTextBox1.GetCharIndexFromPosition(e.Location);
+            ////Получаем номер строки по знаку
+            //int lineIndex = richTextBox1.GetLineFromCharIndex(charIndex);
+            ////Получаем номер индекса, который стоит 1-м в строке
+            //int startFromIndex = richTextBox1.GetFirstCharIndexFromLine(lineIndex);
+            ////Получаем длину строки
+            //int lineLength = richTextBox1.Lines[lineIndex].Length;
+            ////Выделяем текст с первого символа строки до конца строки
+            //richTextBox1.Select(startFromIndex, lineLength);
+        }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Uri uri = new Uri(textBox8.Text);
+            richTextBox2.AppendText(GetEmailsFromPage(uri.GetLeftPart(UriPartial.Scheme) + uri.Host).ToString());
             int i = 1;
             foreach (var item in cont)
             {
@@ -177,10 +239,10 @@ namespace HtmlParser
                 i++;
             }
         }
-        private void button4_Click(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
             int i = 1;
-            var listRequest = CustomSearch.Cse.List(textBox4.Text);
+            var listRequest = CustomSearch.Cse.List(textBox7.Text);
             listRequest.Cx = cx;
             IList<Result> paging = new List<Result>();
             List<string> links = new List<string>();
@@ -198,15 +260,9 @@ namespace HtmlParser
                 count++;
             }
 
-            //int j = 1;
-            //foreach (var item in links.Distinct())
-            //{
-            //    richTextBox1.AppendText(j++ +". " + item + "\n");
-            //}
-
             foreach (var item in links.Distinct())
             {
-                richTextBox1.AppendText(GetEmailsFromPage(item) + "\n");
+                richTextBox2.AppendText(GetEmailsFromPage(item) + "\n");
                 Application.DoEvents();
             }
 
@@ -220,46 +276,14 @@ namespace HtmlParser
                 i++;
             }
         }
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-            writer.EndWrite();
-            stream.Close();
-        }
-        private void button5_Click(object sender, EventArgs e)
-        {
-            var ids = app.Groups.GetMembers(new GroupsGetMembersParams
+            richTextBox1.Clear();
+            var sel = res.Select(x => x.GetAttribute("src"));
+            foreach (var item in sel.Where(x => x != null && x.Contains(textBox3.Text)))
             {
-                Count = 1000,
-                GroupId = textBox6.Text,
-                Fields = UsersFields.All
-            }).Where(x => x.MobilePhone != null && x.MobilePhone != "" || x.Site != null && x.Site != "");
-            foreach (var item in ids)
-            {
-                ListViewItem lvi = new ListViewItem(item.FirstName + " " + item.LastName);
-                lvi.SubItems.Add(item.MobilePhone);
-                lvi.SubItems.Add(item.Site);
-                listView1.Items.Add(lvi);
-                //try
-                //{
-                //    if(item.Site.Count() > 0)
-                //    {
-                //        foreach (var item2 in item.Site)
-                //        {
-                //            listBox1.Items.Add(item.FirstName + " " + item.LastName + " ->  " + item2);
-
-                //        }
-                //    }
-
-                //}
-                //catch (Exception)
-                //{
-
-                //    throw;
-                //}
-                //listBox1.Items.Add(item.FirstName + " " + item.LastName + " ->  " + item.Site);
+                richTextBox1.AppendText(item + "\n");
             }
-            //int count;
-            //var res = app.Groups.GetMembers(out count, )
         }
     }
 }

@@ -8,7 +8,7 @@
         <beforeApplicationStartup />
       </update>
     </subscription>
-    <deploymentProvider codebase="http://desktop-m5pmd63/HtmlParser/HtmlParser.application" />
+    <deploymentProvider codebase="http://desktop-797cnif/HtmlParser/HtmlParser.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
@@ -21,7 +21,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+IcpKtDtX76B5cSojOTv8U6izhAc8grSD1eJtKE/USA=</dsig:DigestValue>
+        <dsig:DigestValue>WKSid1AZHHjuj/71C76pkYzVhEUyZSxb+D6b0n3JzOo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

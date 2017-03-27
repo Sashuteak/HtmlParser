@@ -102,14 +102,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HtmlParser.exe" size="23008">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HtmlParser.exe" size="26080">
       <assemblyIdentity name="HtmlParser" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zXgO0hzP49oBU9U1v74QumrQRYbsWOMgDUjyFJJuyk4=</dsig:DigestValue>
+        <dsig:DigestValue>v+ar+ZNUdkv0QZALQPKG2jv/ZPMxo9l5m4bn0kYzg8c=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

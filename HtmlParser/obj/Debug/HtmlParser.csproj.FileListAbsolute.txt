@@ -62,3 +62,36 @@ D:\C#\My Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.exe.manifest
 D:\C#\My Projects\HtmlParser\HtmlParser\obj\Debug\HtmlParser.application
 D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\VkNet.dll
 D:\C#\My Projects\HtmlParser\HtmlParser\bin\Debug\VkNet.xml
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\HtmlParser.exe.config
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\obj\Debug\HtmlParser.exe
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\obj\Debug\HtmlParser.pdb
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\HtmlParser.exe.manifest
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\HtmlParser.application
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\HtmlParser.exe
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\HtmlParser.pdb
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\AngleSharp.dll
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Core.dll
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Customsearch.v1.dll
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\Google.Apis.dll
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\Google.Apis.PlatformServices.dll
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\Newtonsoft.Json.dll
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\VkNet.dll
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\Zlib.Portable.dll
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\AngleSharp.xml
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\Google.Apis.pdb
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\Google.Apis.xml
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Core.pdb
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Core.xml
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Customsearch.v1.pdb
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\Google.Apis.Customsearch.v1.xml
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\Google.Apis.PlatformServices.pdb
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\Google.Apis.PlatformServices.xml
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\Newtonsoft.Json.xml
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\VkNet.xml
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\bin\Debug\Zlib.Portable.xml
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\obj\Debug\HtmlParser.csprojResolveAssemblyReference.cache
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\obj\Debug\HtmlParser.Form1.resources
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\obj\Debug\HtmlParser.Properties.Resources.resources
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\obj\Debug\HtmlParser.csproj.GenerateResource.Cache
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\obj\Debug\HtmlParser.exe.manifest
+C:\Users\sashu\Desktop\тест\HtmlParser\HtmlParser\obj\Debug\HtmlParser.application
