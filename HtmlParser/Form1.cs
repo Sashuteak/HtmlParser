@@ -13,6 +13,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VkNet;
@@ -148,6 +149,16 @@ namespace HtmlParser
         {
             richTextBox1.Clear();
             res = document.All.Where(x => x.LocalName == comboBox1.SelectedItem.ToString());
+            if(comboBox1.SelectedItem.ToString() == "a" && textBox2.Text == "href")
+            {
+                var href = res.Select(x => x.GetAttribute("href"));
+                foreach (var item in href.Where(x => x.Length > 4 && !x.Contains("javascript")))
+                {
+                    listBox1.Items.Add(item);
+                }
+                return;
+            }
+
             if(textBox2.Text != "")
             {
                 foreach (var item in res)
@@ -170,29 +181,44 @@ namespace HtmlParser
         }
         private void button5_Click(object sender, EventArgs e)
         {
-            progressBar1.Maximum = int.Parse(textBox5.Text);
-            progressBar1.Minimum = 0;
-            progressBar1.Value = 0;
-            for (int i = 0; i < int.Parse(textBox5.Text);)
+            Thread obj = new Thread(delegate ()
             {
-                var ids = app.Groups.GetMembers(new GroupsGetMembersParams
+                progressBar1.Maximum = int.Parse(textBox5.Text);
+                progressBar1.Minimum = 0;
+                progressBar1.Value = 0;
+                Regex rex = new Regex(@"^[0-9]{5, 14}");
+                int numb = 1;
+                for (int i = 0; i < int.Parse(textBox5.Text); i++)
                 {
-                    Offset = i,
-                    GroupId = textBox6.Text,
-                    Fields = UsersFields.All
-                }).Where(x => x.MobilePhone != null && x.MobilePhone != "" || x.Site != null && x.Site != "");
-                foreach (var item in ids)
-                {
-                    ListViewItem lvi = new ListViewItem(item.FirstName + " " + item.LastName);
-                    lvi.SubItems.Add(item.MobilePhone);
-                    lvi.SubItems.Add(item.Site);
-                    listView1.Items.Add(lvi);
-                    progressBar1.Value += 1;
+                    var ids = app.Groups.GetMembers(new GroupsGetMembersParams
+                    {
+                        Offset = i,
+                        GroupId = textBox6.Text,
+                        Fields = UsersFields.All,
+                        Count = 1
+                    }).Where(x => x.MobilePhone != null && x.MobilePhone != "" || x.Site != null && x.Site != "");
+                    foreach (var item in ids)
+                    {
+                        if(item.MobilePhone != null)
+                        {
+                            if(rex.IsMatch(item.MobilePhone))
+                            {
+                                ListViewItem lvi = new ListViewItem(item.FirstName + " " + item.LastName);
+                                lvi.SubItems.Add(item.MobilePhone);
+                                lvi.SubItems.Add(item.Site);
+                                listView1.Items.Add(lvi);
+                                progressBar1.Value = i;
+                                Application.DoEvents();
+                                label8.Text = "Count: " + numb.ToString();
+                                numb++;
+                            }
+                        }
+                        
+                    }
                     Application.DoEvents();
                 }
-                i += 1000;
-            }
-            MessageBox.Show(listView1.Items.Count.ToString());
+            });
+            obj.Start();
         }
         private void button6_Click(object sender, EventArgs e)
         {
@@ -283,6 +309,43 @@ namespace HtmlParser
             foreach (var item in sel.Where(x => x != null && x.Contains(textBox3.Text)))
             {
                 richTextBox1.AppendText(item + "\n");
+            }
+        }
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox2.Items.Clear();
+            var res = document.All.Where(x => x.LocalName == comboBox1.SelectedItem.ToString()).Where(y => y.GetAttribute("class") != null).Select(z => z.GetAttribute("class")).Distinct();
+            foreach (var item in res)
+            {
+                comboBox2.Items.Add(item);
+            }
+        }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            radioButton1.Checked = false;
+            comboBox2.Items.Clear();
+            comboBox2.ResetText();
+        }
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox2.Items.Clear();
+            var res = document.All.Where(x => x.LocalName == comboBox1.SelectedItem.ToString()).Where(y => y.GetAttribute("id") != null).Select(z => z.GetAttribute("id")).Distinct();
+            foreach (var item in res)
+            {
+                comboBox2.Items.Add(item);
+            }
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Clear();
+            var res = document.All.Where(x => x.LocalName == comboBox1.SelectedItem.ToString());
+            if(radioButton1.Checked)
+            {
+                var src = res.Where(x => x.GetAttribute("class") == comboBox2.SelectedItem.ToString());
+                foreach (var item in src)
+                {
+                    richTextBox1.AppendText(item.TextContent.Trim() + "\n");
+                }
             }
         }
     }
