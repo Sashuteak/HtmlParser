@@ -181,39 +181,35 @@ namespace HtmlParser
         }
         private void button5_Click(object sender, EventArgs e)
         {
+            int user = int.Parse(textBox5.Text);
+            progressBar1.Maximum = user;
+            progressBar1.Minimum = 0;
+            progressBar1.Value = 0;
             Thread obj = new Thread(delegate ()
             {
-                progressBar1.Maximum = int.Parse(textBox5.Text);
-                progressBar1.Minimum = 0;
-                progressBar1.Value = 0;
                 Regex rex = new Regex(@"^[0-9]{5, 14}");
                 int numb = 1;
-                for (int i = 0; i < int.Parse(textBox5.Text); i++)
+                int off = 0;
+                for (int i = 0; i < int.Parse(textBox5.Text);)
                 {
                     var ids = app.Groups.GetMembers(new GroupsGetMembersParams
                     {
-                        Offset = i,
+                        Offset = off,
                         GroupId = textBox6.Text,
-                        Fields = UsersFields.All,
-                        Count = 1
-                    }).Where(x => x.MobilePhone != null && x.MobilePhone != "" || x.Site != null && x.Site != "");
+                        Fields = UsersFields.All
+                    });
+                    off += 1000;
+                    i += 1000;
                     foreach (var item in ids)
                     {
-                        if(item.MobilePhone != null)
-                        {
-                            if(rex.IsMatch(item.MobilePhone))
-                            {
-                                ListViewItem lvi = new ListViewItem(item.FirstName + " " + item.LastName);
-                                lvi.SubItems.Add(item.MobilePhone);
-                                lvi.SubItems.Add(item.Site);
-                                listView1.Items.Add(lvi);
-                                progressBar1.Value = i;
-                                Application.DoEvents();
-                                label8.Text = "Count: " + numb.ToString();
-                                numb++;
-                            }
-                        }
-                        
+                        progressBar1.Value += 1;
+                        ListViewItem lvi = new ListViewItem(item.FirstName + " " + item.LastName);
+                        lvi.SubItems.Add(item.MobilePhone);
+                        lvi.SubItems.Add(item.Site);
+                        listView1.Items.Add(lvi);
+                        Application.DoEvents();
+                        label8.Text = "Count: " + numb.ToString();
+                        numb++;
                     }
                     Application.DoEvents();
                 }
@@ -351,6 +347,7 @@ namespace HtmlParser
     }
 }
 
+//Where(x => x.MobilePhone != null && x.MobilePhone != "" || x.Site != null && x.Site != "")
 //Для парсинга email
 // Regex - @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
 // Regex2 - \b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}\b
