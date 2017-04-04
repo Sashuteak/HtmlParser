@@ -3,6 +3,7 @@ using AngleSharp.Dom.Html;
 using Google.Apis.Customsearch.v1;
 using Google.Apis.Customsearch.v1.Data;
 using Google.Apis.Services;
+using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,7 +57,7 @@ namespace HtmlParser
             {
                 ApplicationId = appID,
                 Login = "aleksandrlevchenko26@yandex.ru",
-                Password = "Jesusisway1215",
+                Password = "Jesus is way",
                 Settings = settings
             });
         }
@@ -179,43 +180,61 @@ namespace HtmlParser
             writer.EndWrite();
             stream.Close();
         }
+
+        //Получение контактов из групп
         private void button5_Click(object sender, EventArgs e)
         {
-            int user = int.Parse(textBox5.Text);
-            progressBar1.Maximum = user;
+            int users = int.Parse(textBox5.Text);
+            int lastoffset = users % 1000;
+            int tho = users / 1000;
+            int cou = 1000;
+            progressBar1.Maximum = users;
             progressBar1.Minimum = 0;
             progressBar1.Value = 0;
             Thread obj = new Thread(delegate ()
             {
-                Regex rex = new Regex(@"^[0-9]{5, 14}");
                 int numb = 1;
                 int off = 0;
-                for (int i = 0; i < int.Parse(textBox5.Text);)
+                for (int i = 0; i <= tho; i++)
                 {
+                    if (i == tho)
+                    {
+                        cou = lastoffset;
+                    }
+
                     var ids = app.Groups.GetMembers(new GroupsGetMembersParams
                     {
                         Offset = off,
                         GroupId = textBox6.Text,
-                        Fields = UsersFields.All
+                        Fields = UsersFields.All,
+                        Count = cou
                     });
+                    
                     off += 1000;
-                    i += 1000;
+                    
                     foreach (var item in ids)
                     {
-                        progressBar1.Value += 1;
-                        ListViewItem lvi = new ListViewItem(item.FirstName + " " + item.LastName);
+                        ListViewItem lvi = new ListViewItem(item.Id.ToString());
+                        lvi.SubItems.Add(item.FirstName + " " + item.LastName);
                         lvi.SubItems.Add(item.MobilePhone);
                         lvi.SubItems.Add(item.Site);
                         listView1.Items.Add(lvi);
-                        Application.DoEvents();
+                        System.Windows.Forms.Application.DoEvents();
                         label8.Text = "Count: " + numb.ToString();
+                        progressBar1.Value += 1;
                         numb++;
                     }
-                    Application.DoEvents();
+                    System.Windows.Forms.Application.DoEvents();
                 }
+
+                
             });
             obj.Start();
+
+
         }
+
+        //Скачивание фотографий с сайта
         private void button6_Click(object sender, EventArgs e)
         {
             WebClient client = new WebClient();
@@ -233,19 +252,7 @@ namespace HtmlParser
                 }
             }
         }
-        private void richTextBox1_MouseClick(object sender, MouseEventArgs e)
-        {
-            ////Получаем индекс нажатого знака
-            //int charIndex = richTextBox1.GetCharIndexFromPosition(e.Location);
-            ////Получаем номер строки по знаку
-            //int lineIndex = richTextBox1.GetLineFromCharIndex(charIndex);
-            ////Получаем номер индекса, который стоит 1-м в строке
-            //int startFromIndex = richTextBox1.GetFirstCharIndexFromLine(lineIndex);
-            ////Получаем длину строки
-            //int lineLength = richTextBox1.Lines[lineIndex].Length;
-            ////Выделяем текст с первого символа строки до конца строки
-            //richTextBox1.Select(startFromIndex, lineLength);
-        }
+
         private void button8_Click(object sender, EventArgs e)
         {
             Uri uri = new Uri(textBox8.Text);
@@ -285,7 +292,7 @@ namespace HtmlParser
             foreach (var item in links.Distinct())
             {
                 richTextBox2.AppendText(GetEmailsFromPage(item) + "\n");
-                Application.DoEvents();
+                System.Windows.Forms.Application.DoEvents();
             }
 
             foreach (var c in cont)
@@ -343,6 +350,44 @@ namespace HtmlParser
                     richTextBox1.AppendText(item.TextContent.Trim() + "\n");
                 }
             }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            foreach (ListViewItem item in listView1.Items)
+            {
+                writer.WriteCell(i, 0, item.SubItems[0].Text);
+                writer.WriteCell(i, 1, item.SubItems[1].Text);
+                writer.WriteCell(i, 2, item.SubItems[2].Text);
+                writer.WriteCell(i, 3, item.SubItems[3].Text);
+                i++;
+            }
+            MessageBox.Show("Файл успешно сохранен");
+            //SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel WorkBook|*.xlsx", ValidateNames = true };
+            //if(sfd.ShowDialog() == DialogResult.OK)
+            //{
+            //    Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+            //    Workbook wb = app.Workbooks.Add(XlSheetType.xlWorksheet);
+            //    Worksheet ws = (Worksheet)app.ActiveSheet;
+            //    app.Visible = false;
+            //    ws.Cells[1, 1] = "User ID";
+            //    ws.Cells[1, 2] = "User Name";
+            //    ws.Cells[1, 3] = "User Phone";
+            //    ws.Cells[1, 4] = "User Site";
+            //    int i = 2;
+            //    foreach (ListViewItem item in listView1.Items)
+            //    {
+            //        ws.Cells[i, 1] = item.SubItems[0].Text;
+            //        ws.Cells[i, 2] = item.SubItems[1].Text;
+            //        ws.Cells[i, 3] = item.SubItems[2].Text;
+            //        ws.Cells[i, 4] = (item.SubItems[3].Text).Trim();
+            //        i++;
+            //    }
+            //    wb.SaveAs(sfd.FileName, XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing, true, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
+            //    app.Quit();
+            //    MessageBox.Show("Файл успешно сохранен");
+            //}
         }
     }
 }

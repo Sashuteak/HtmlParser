@@ -69,6 +69,8 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button9 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -84,7 +86,6 @@
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             this.richTextBox1.WordWrap = false;
-            this.richTextBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.richTextBox1_MouseClick);
             // 
             // textBox1
             // 
@@ -164,7 +165,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1284, 726);
+            this.tabControl1.Size = new System.Drawing.Size(1209, 696);
             this.tabControl1.TabIndex = 12;
             // 
             // tabPage1
@@ -326,6 +327,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button9);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.progressBar1);
             this.tabPage2.Controls.Add(this.label4);
@@ -338,7 +340,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1276, 697);
+            this.tabPage2.Size = new System.Drawing.Size(1201, 667);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Client Info";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -346,7 +348,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(549, 575);
+            this.label8.Location = new System.Drawing.Point(726, 59);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(61, 17);
             this.label8.TabIndex = 8;
@@ -356,7 +358,7 @@
             // 
             this.progressBar1.Location = new System.Drawing.Point(21, 66);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(621, 10);
+            this.progressBar1.Size = new System.Drawing.Size(699, 10);
             this.progressBar1.TabIndex = 7;
             // 
             // label4
@@ -382,13 +384,16 @@
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4,
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
-            this.listView1.Location = new System.Drawing.Point(21, 84);
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.Location = new System.Drawing.Point(24, 88);
             this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(620, 483);
+            this.listView1.Size = new System.Drawing.Size(763, 483);
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -396,7 +401,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Name";
-            this.columnHeader1.Width = 138;
+            this.columnHeader1.Width = 183;
             // 
             // columnHeader2
             // 
@@ -406,7 +411,7 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Email";
-            this.columnHeader3.Width = 135;
+            this.columnHeader3.Width = 264;
             // 
             // button5
             // 
@@ -495,11 +500,26 @@
             this.textBox8.Size = new System.Drawing.Size(636, 22);
             this.textBox8.TabIndex = 12;
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "ID";
+            this.columnHeader4.Width = 132;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(711, 579);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.TabIndex = 9;
+            this.button9.Text = "Save";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1313, 754);
+            this.ClientSize = new System.Drawing.Size(1233, 720);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
@@ -559,6 +579,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Button button9;
     }
 }
 

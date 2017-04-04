@@ -102,14 +102,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HtmlParser.exe" size="30176">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HtmlParser.exe" size="37856">
       <assemblyIdentity name="HtmlParser" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>adClBm+hNvqsL4EmGcJecL5vrUFLRqPhhQqXTRw5gD4=</dsig:DigestValue>
+        <dsig:DigestValue>62D4/YivXjw4uBdqxpLHSnUj78yi5iwsDsRD3quHTAI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -149,13 +149,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="HtmlParser.exe.config" size="544">
+  <file name="HtmlParser.exe.config" size="593">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>piNRc74LqECkBOpsMDm4c/2p7ehh7fN8CjwA5ieF7Fo=</dsig:DigestValue>
+      <dsig:DigestValue>OcROfLSaTAvJvR3SsaR+ZgFkN4crUbPUs/JlS3Z1VI8=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
