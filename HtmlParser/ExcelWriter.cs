@@ -11,9 +11,8 @@ namespace HtmlParser
     {
         Stream stream;
         BinaryWriter writer;
-
-        ushort[] clBegin = { 0x0809, 8, 0, 0x10, 0, 0 };
-        ushort[] clEnd = { 0x0A, 00 };
+        readonly ushort[] clBegin = { 0x0809, 8, 0, 0x10, 0, 0 };
+        readonly ushort[] clEnd = { 0x0A, 00 };
 
 
         public ExcelWriter(Stream stream)
